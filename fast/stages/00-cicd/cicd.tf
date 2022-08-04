@@ -15,7 +15,7 @@
  */
 
 locals {
-  supported_cicd_systems = ["gitlab", "github", "sourcerepo"]
+  supported_cicd_systems = ["github", "sourcerepo"]
   cicd_repositories = {
     for k, v in coalesce(var.cicd_repositories, {}) : k => merge(v,
       { group = join("/", slice(split("/", v.name), 0, length(split("/", v.name)) - 1)) },
