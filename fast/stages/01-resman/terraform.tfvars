@@ -13,7 +13,7 @@ organization={
 prefix="mesh"
 
 # comment out if you want to leverage automatic generation of configs
-outputs_location = "~/fast-config"
+outputs_location = "../../config"
 
 organization_policy_configs = {
     allowed_policy_member_domains = [
