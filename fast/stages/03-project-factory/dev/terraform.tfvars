@@ -14,21 +14,3 @@ prefix="mesh"
 
 # comment out if you want to leverage automatic generation of configs
 outputs_location = "../../config"
-
-organization_policy_configs = {
-    allowed_policy_member_domains = [
-        "C028009kx"
-    ]
-}
-
-team_folders = {
-  team-example = {
-    descriptive_name = "Team Example"
-    group_iam = {
-      "team-example@gcpfast.dev.meshcloud.io" = [
-        "roles/viewer"
-      ]
-    }
-    impersonation_groups = ["team-example-admins@gcpfast.dev.meshcloud.io"]
-  }
-}
