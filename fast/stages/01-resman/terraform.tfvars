@@ -31,4 +31,24 @@ team_folders = {
     }
     impersonation_groups = ["team-example-admins@gcpfast.dev.meshcloud.io"]
   }
+
+  meshstack = {
+    descriptive_name = "meshStack"
+    group_iam = {
+      "meshstack@gcpfast.dev.meshcloud.io" = [
+        "roles/viewer"
+      ]
+    }
+    impersonation_groups = ["meshstack-admins@gcpfast.dev.meshcloud.io"]
+  }
+
+  meshstacklz1 = {
+    descriptive_name = "meshStack LZ-1"
+    group_iam = {
+      "meshstack-lz-1@gcpfast.dev.meshcloud.io" = [
+        "roles/viewer"
+      ]
+    }
+    impersonation_groups = ["meshstack-lz-1-admins@gcpfast.dev.meshcloud.io"]
+  }
 }
