@@ -1,3 +1,13 @@
+module "billing_export" {
+  source = "./modules/meshcloud-billing-export/"
+
+  billing_data_export_dataset_id = var.cloud_billing_export_dataset_id
+  billing_data_export_project_id = var.cloud_billing_export_project_id
+  billing_dataset_region         = var.billing_dataset_location
+
+  billing_account_id = var.billing_account_id
+}
+
 module "kraken_sa" {
   source = "./modules/meshcloud-kraken-service-account/"
 

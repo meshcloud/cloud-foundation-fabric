@@ -76,3 +76,9 @@ variable "carbon_footprint_dataset_id" {
   description = "Id of BigQuery dataset for carbon footprint."
   default     = "carbon_footprint_data"
 }
+
+variable "billing_dataset_location" {
+  type        = string
+  description = "Location of BigQuery dataset for billing data."
+  default     = "us-west1"
+}
