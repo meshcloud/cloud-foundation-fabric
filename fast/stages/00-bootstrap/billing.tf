@@ -64,6 +64,7 @@ module "billing-organization-ext" {
   organization_id = "organizations/${var.billing_account.organization_id}"
   iam_additive = {
     "roles/billing.admin" = local.billing_ext_admins
+    "roles/iam.organizationRoleViewer" = [module.automation-tf-bootstrap-sa.iam_email]
   }
 }
 
