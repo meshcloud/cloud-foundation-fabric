@@ -33,6 +33,9 @@ services:
   - storage.googleapis.com
   - stackdriver.googleapis.com
   - compute.googleapis.com
+  - cloudbilling.googleapis.com
+  - bigquery.googleapis.com
+  - bigquerydatatransfer.googleapis.com
 
 # [opt] Roles to assign to the service identities in service => [roles] format
 service_identities_iam:
