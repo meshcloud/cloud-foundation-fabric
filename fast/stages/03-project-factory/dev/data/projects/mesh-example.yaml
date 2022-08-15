@@ -22,7 +22,7 @@ folder_id: folders/180123000263
 # [opt] Authoritative IAM bindings in group => [roles] format
 group_iam:
   team-example@gcpfast.dev.meshcloud.io:
-    - roles/compute.admin
+    - roles/editor
 
 # [opt] Labels for the project - merged with the ones defined in defaults
 labels:
@@ -47,3 +47,21 @@ service_identities_iam:
   compute:
     - roles/storage.objectViewer
 
+vpc:
+  # [opt] If set, enables the container API
+  gke_setup:
+    # Grants "roles/container.hostServiceAgentUser" to the container robot if set
+    enable_host_service_agent: false
+
+    # Grants  "roles/compute.securityAdmin" to the container robot if set
+    enable_security_admin: false
+
+  # Host project the project will be service project of
+  host_project: mesh-dev-net-spoke-0
+
+  # [opt] Subnets in the host project where principals will be granted networkUser
+  # in region/subnet-name => [principals]
+  subnets_iam:
+    europe-west1/dev-default-ew1:
+      - group:team-example@gcpfast.dev.meshcloud.io
+      - serviceAccount:my-service-account@mesh-mesh-example.iam.gserviceaccount.com 
