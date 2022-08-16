@@ -64,6 +64,7 @@ module "billing-organization-ext" {
   organization_id = "organizations/${var.billing_account.organization_id}"
   iam_additive = {
     "roles/billing.admin" = local.billing_ext_admins
+    "roles/iam.organizationRoleViewer" = [module.automation-tf-bootstrap-sa.iam_email]
   }
 }
 
@@ -73,11 +74,11 @@ resource "google_organization_iam_binding" "billing_org_ext_admin_delegated" {
   count  = local.billing_org_ext ? 1 : 0
   org_id = var.billing_account.organization_id
   # if the billing org does not have our custom role, user the predefined one
-  # role = "roles/resourcemanager.organizationAdmin"
-  role = join("", [
-    "organizations/${var.billing_account.organization_id}/",
-    "roles/${var.custom_role_names.organization_iam_admin}"
-  ])
+  role = "roles/resourcemanager.organizationAdmin"
+  # role = join("", [
+  #   "organizations/${var.billing_account.organization_id}/",
+  #   "roles/${var.custom_role_names.organization_iam_admin}"
+  # ])
   members = [module.automation-tf-resman-sa.iam_email]
   condition {
     title       = "automation_sa_delegated_grants"
